@@ -26,4 +26,9 @@ Route::get('/categories/{id}', [CategoriesController::class, 'edit'])
 Route::put('/categories/{id}', [CategoriesController::class, 'update'])
     ->name('categories.update');
 
+Route::view('/products', 'products.list')->name('products.index');
+Route::view('/products/create', 'products.create')->name('products.create');
+Route::view('/products/{product}/edit', 'products.edit')->name('products.edit');
+Route::view('/products/{product}', 'products.show')->name('products.show')->where('product', '[0-9]+');
+
 Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
